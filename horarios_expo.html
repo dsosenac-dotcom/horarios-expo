@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EXPO – Horários de Aulas 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0d14;
+    --surface: #111520;
+    --surface2: #161b2e;
+    --border: rgba(255,255,255,0.07);
+    --text: #e8eaf2;
+    --muted: #6b7280;
+    --accent1: #4f8ef7;
+    --accent2: #a78bfa;
+    --accent3: #34d399;
+    --accent4: #fb923c;
+    --accent5: #f472b6;
+    --accent6: #facc15;
+
+    /* subject colors */
+    --c-mat: #3b82f6;
+    --c-port: #8b5cf6;
+    --c-fis: #06b6d4;
+    --c-qui: #10b981;
+    --c-bio: #22c55e;
+    --c-hist: #f59e0b;
+    --c-geo: #ef4444;
+    --c-art: #ec4899;
+    --c-ed: #14b8a6;
+    --c-soc: #a855f7;
+    --c-fil: #6366f1;
+    --c-ing: #f97316;
+    --c-red: #e11d48;
+    --c-lit: #7c3aed;
+    --c-pv: #0ea5e9;
+    --c-rob: #84cc16;
+    --c-gram: #d946ef;
+    --c-cien: #2dd4bf;
+    --c-edf: #fb923c;
+    --c-fin: #fbbf24;
+    --c-liv: #38bdf8;
+    --c-prod: #c084fc;
+    --c-dig: #4ade80;
+    --c-cbio: #a3e635;
+    --c-cqui: #fb7185;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* TOP BAR */
+  .topbar {
+    background: linear-gradient(135deg, #0f1729 0%, #1a1040 50%, #0f1729 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+  }
+  .logo-mark span:nth-child(1) { background: #f59e0b; border-radius: 2px; }
+  .logo-mark span:nth-child(2) { background: #4f8ef7; border-radius: 2px; }
+  .logo-mark span:nth-child(3) { background: #10b981; border-radius: 50%; }
+  .logo-mark span:nth-child(4) { background: #ef4444; border-radius: 2px; }
+
+  .logo-text { font-size: 1rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
+  .logo-sub { font-size: 0.7rem; color: var(--muted); font-weight: 400; }
+
+  .nav-badge {
+    background: rgba(79,142,247,0.15);
+    border: 1px solid rgba(79,142,247,0.3);
+    color: var(--accent1);
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 300px;
+    background: radial-gradient(ellipse, rgba(79,142,247,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--accent1);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #e8eaf2 30%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero p {
+    color: var(--muted);
+    font-size: 0.875rem;
+    margin-bottom: 2rem;
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+  }
+
+  .tab-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .tab-btn:hover { border-color: rgba(79,142,247,0.4); color: var(--text); }
+  .tab-btn.active {
+    background: var(--accent1);
+    border-color: var(--accent1);
+    color: #fff;
+  }
+
+  /* DAY TABS */
+  .day-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+  }
+
+  .day-btn {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .day-btn:hover { color: var(--text); border-color: var(--border); }
+  .day-btn.active {
+    background: rgba(79,142,247,0.15);
+    border-color: rgba(79,142,247,0.5);
+    color: var(--accent1);
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem 4rem;
+  }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  .day-panel { display: none; }
+  .day-panel.active { display: block; }
+
+  /* SCHEDULE TABLE */
+  .schedule-wrapper {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.75rem;
+  }
+
+  .schedule-table th {
+    background: var(--surface2);
+    padding: 12px 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .schedule-table th.time-col { color: var(--accent1); }
+
+  .schedule-table td {
+    padding: 0;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .schedule-table td:last-child { border-right: none; }
+
+  .time-cell {
+    padding: 10px 14px;
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    background: var(--surface2);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .break-cell {
+    color: var(--muted);
+    font-size: 0.65rem;
+    font-weight: 500;
+    padding: 6px;
+    background: rgba(255,255,255,0.02);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-style: italic;
+  }
+
+  .class-cell {
+    position: relative;
+    padding: 8px 6px;
+    cursor: default;
+  }
+
+  .class-pill {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    padding: 5px 8px;
+    border-radius: 8px;
+    width: 100%;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+
+  .class-pill:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
+
+  .subj-name {
+    font-weight: 700;
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.95);
+    line-height: 1.2;
+  }
+
+  .teacher-name {
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.65);
+    font-weight: 400;
+  }
+
+  /* subject color classes */
+  .s-mat { background: rgba(59,130,246,0.25); border: 1px solid rgba(59,130,246,0.4); }
+  .s-port { background: rgba(139,92,246,0.25); border: 1px solid rgba(139,92,246,0.4); }
+  .s-fis { background: rgba(6,182,212,0.25); border: 1px solid rgba(6,182,212,0.4); }
+  .s-qui { background: rgba(16,185,129,0.25); border: 1px solid rgba(16,185,129,0.4); }
+  .s-bio { background: rgba(34,197,94,0.25); border: 1px solid rgba(34,197,94,0.4); }
+  .s-hist { background: rgba(245,158,11,0.25); border: 1px solid rgba(245,158,11,0.4); }
+  .s-geo { background: rgba(239,68,68,0.25); border: 1px solid rgba(239,68,68,0.4); }
+  .s-art { background: rgba(236,72,153,0.25); border: 1px solid rgba(236,72,153,0.4); }
+  .s-ed { background: rgba(20,184,166,0.25); border: 1px solid rgba(20,184,166,0.4); }
+  .s-soc { background: rgba(168,85,247,0.25); border: 1px solid rgba(168,85,247,0.4); }
+  .s-fil { background: rgba(99,102,241,0.25); border: 1px solid rgba(99,102,241,0.4); }
+  .s-ing { background: rgba(249,115,22,0.25); border: 1px solid rgba(249,115,22,0.4); }
+  .s-red { background: rgba(225,29,72,0.25); border: 1px solid rgba(225,29,72,0.4); }
+  .s-lit { background: rgba(124,58,237,0.25); border: 1px solid rgba(124,58,237,0.4); }
+  .s-pv { background: rgba(14,165,233,0.25); border: 1px solid rgba(14,165,233,0.4); }
+  .s-rob { background: rgba(132,204,22,0.25); border: 1px solid rgba(132,204,22,0.4); }
+  .s-gram { background: rgba(217,70,239,0.25); border: 1px solid rgba(217,70,239,0.4); }
+  .s-cien { background: rgba(45,212,191,0.25); border: 1px solid rgba(45,212,191,0.4); }
+  .s-edf { background: rgba(251,146,60,0.25); border: 1px solid rgba(251,146,60,0.4); }
+  .s-fin { background: rgba(251,191,36,0.25); border: 1px solid rgba(251,191,36,0.4); }
+  .s-liv { background: rgba(56,189,248,0.25); border: 1px solid rgba(56,189,248,0.4); }
+  .s-prod { background: rgba(192,132,252,0.25); border: 1px solid rgba(192,132,252,0.4); }
+  .s-dig { background: rgba(74,222,128,0.25); border: 1px solid rgba(74,222,128,0.4); }
+  .s-cbio { background: rgba(163,230,53,0.25); border: 1px solid rgba(163,230,53,0.4); }
+  .s-cqui { background: rgba(251,113,133,0.25); border: 1px solid rgba(251,113,133,0.4); }
+  .s-eal { background: rgba(52,211,153,0.25); border: 1px solid rgba(52,211,153,0.4); }
+
+  /* LEGEND */
+  .legend {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .legend-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .legend-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    color: var(--muted);
+  }
+
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-item {
+    background: var(--surface);
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    color: var(--muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* SEARCH */
+  .search-wrap {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .search-input {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    outline: none;
+    flex: 1;
+    min-width: 200px;
+    transition: border-color 0.2s;
+  }
+
+  .search-input::placeholder { color: var(--muted); }
+  .search-input:focus { border-color: rgba(79,142,247,0.5); }
+
+  .filter-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .filter-btn:hover { color: var(--text); border-color: rgba(79,142,247,0.4); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .topbar { padding: 0 1rem; }
+    .hero { padding: 2rem 1rem 1.5rem; }
+    .schedule-table { font-size: 0.65rem; }
+    .time-cell { font-size: 0.6rem; padding: 8px; }
+    .subj-name { font-size: 0.6rem; }
+    .teacher-name { display: none; }
+    .class-pill { padding: 4px 4px; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--muted);
+    font-size: 0.7rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer strong { color: var(--accent1); }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<nav class="topbar">
+  <div class="logo">
+    <div class="logo-mark">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <div>
+      <div class="logo-text">EXPO</div>
+      <div class="logo-sub">Sistema de Horários</div>
+    </div>
+  </div>
+  <div class="nav-badge">Vigência: 03/08/2026</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Horários de Aulas 2026</div>
+  <h1>Grade Escolar Completa</h1>
+  <p>Ensino Médio Matutino · Ensino Fundamental – Anos Finais (6º ao 9º Ano)</p>
+</div>
+
+<!-- LEVEL TABS -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchLevel('medio')">🎓 Ensino Médio</button>
+  <button class="tab-btn" onclick="switchLevel('fund')">📚 Ensino Fundamental</button>
+</div>
+
+<div class="content">
+
+  <!-- STATS (Médio) -->
+  <div id="stats-medio" class="stats-bar">
+    <div class="stat-item"><div class="stat-value" style="color:var(--accent1)">6</div><div class="stat-label">Turmas</div></div>
+    <div class="stat-item"><div class="stat-value" style="color:var(--accent2)">4</div><div class="stat-label">Dias de Aula</div></div>
+    <div class="stat-item"><div class="stat-value" style="color:var(--accent3)">18+</div><div class="stat-label">Professores</div></div>
+    <div class="stat-item"><div class="stat-value" style="color:var(--accent4)">20+</div><div class="stat-label">Disciplinas</div></div>
+  </div>
+  <div id="stats-fund" class="stats-bar" style="display:none">
+    <div class="stat-item"><div class="stat-value" style="color:var(--accent1)">5</div><div class="stat-label">Turmas</div></div>
+    <div class="stat-item"><div class="stat-value" style="color:var(--accent2)">4</div><div class="stat-label">Dias de Aula</div></div>
+    <div class="stat-item"><div class="stat-value" style="color:var(--accent3)">15+</div><div class="stat-label">Professores</div></div>
+    <div class="stat-item"><div class="stat-value" style="color:var(--accent4)">18+</div><div class="stat-label">Disciplinas</div></div>
+  </div>
+
+  <!-- ===== ENSINO MÉDIO PANEL ===== -->
+  <div id="panel-medio" class="panel active">
+
+    <div class="day-tabs">
+      <button class="day-btn active" onclick="switchDay('medio','seg')">2ª Feira</button>
+      <button class="day-btn" onclick="switchDay('medio','ter')">3ª Feira</button>
+      <button class="day-btn" onclick="switchDay('medio','qua')">4ª Feira</button>
+      <button class="day-btn" onclick="switchDay('medio','qui')">5ª Feira</button>
+      <button class="day-btn" onclick="switchDay('medio','sex')">6ª Feira</button>
+    </div>
+
+    <!-- SEG -->
+    <div id="medio-seg" class="day-panel active">
+      <div class="schedule-wrapper">
+        <table class="schedule-table">
+          <thead><tr>
+            <th class="time-col">Horário</th>
+            <th>1ª Série A</th><th>1ª Série B</th>
+            <th>2ª Série A</th><th>2ª Série B</th>
+            <th>3ª Série A</th><th>3ª Série B</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td class="time-cell">7h00–7h50</td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">FÍSICA</span><span class="teacher-name">Bene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-soc"><span class="subj-name">SOCIOLOGIA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Laiene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-red"><span class="subj-name">REDAÇÃO</span><span class="teacher-name">Madalena</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">7h50–8h40</td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">FÍSICA</span><span class="teacher-name">Bene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fil"><span class="subj-name">FILOSOFIA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Laiene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-red"><span class="subj-name">REDAÇÃO</span><span class="teacher-name">Madalena</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h40–8h55</td>
+              <td colspan="6" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h55–9h45</td>
+              <td class="class-cell"><div class="class-pill s-soc"><span class="subj-name">SOCIOLOGIA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">FÍSICA</span><span class="teacher-name">Bene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-art"><span class="subj-name">ARTE</span><span class="teacher-name">Marilice</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Laiene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-red"><span class="subj-name">REDAÇÃO</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA</span><span class="teacher-name">Andreia</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">9h45–10h35</td>
+              <td class="class-cell"><div class="class-pill s-eal"><span class="subj-name">E.ALIMENTOS</span><span class="teacher-name">Paulo</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Laiene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">FÍSICA</span><span class="teacher-name">Bene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-pv"><span class="subj-name">PROJ.VIDA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-red"><span class="subj-name">REDAÇÃO</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA</span><span class="teacher-name">Andreia</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h35–10h50</td>
+              <td colspan="6" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h50–11h40</td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">FÍSICA</span><span class="teacher-name">Bene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Laiene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-art"><span class="subj-name">ARTE</span><span class="teacher-name">Marilice</span></div></td>
+              <td class="class-cell"><div class="class-pill s-pv"><span class="subj-name">PROJ.VIDA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Anderson</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">11h40–12h30</td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Laiene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">FÍSICA</span><span class="teacher-name">Bene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-soc"><span class="subj-name">SOCIOLOGIA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA A</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TER -->
+    <div id="medio-ter" class="day-panel">
+      <div class="schedule-wrapper">
+        <table class="schedule-table">
+          <thead><tr>
+            <th class="time-col">Horário</th>
+            <th>1ª Série A</th><th>1ª Série B</th>
+            <th>2ª Série A</th><th>2ª Série B</th>
+            <th>3ª Série A</th><th>3ª Série B</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td class="time-cell">7h00–7h50</td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-art"><span class="subj-name">ARTE</span><span class="teacher-name">Marilice</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">FÍSICA</span><span class="teacher-name">Bene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-lit"><span class="subj-name">LITERATURA</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Maycon</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">7h50–8h40</td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Maycon</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fin"><span class="subj-name">ED.FINANCEIRA</span><span class="teacher-name">Camyla</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">FÍSICA</span><span class="teacher-name">Bene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-lit"><span class="subj-name">LITERATURA</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-soc"><span class="subj-name">SOCIOLOGIA</span><span class="teacher-name">Giselle</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h40–8h55</td>
+              <td colspan="6" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h55–9h45</td>
+              <td class="class-cell"><div class="class-pill s-fil"><span class="subj-name">FILOSOFIA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-red"><span class="subj-name">REDAÇÃO</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fin"><span class="subj-name">ED.FINANCEIRA</span><span class="teacher-name">Camyla</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Maycon</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">FÍSICA</span><span class="teacher-name">Bene</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">9h45–10h35</td>
+              <td class="class-cell"><div class="class-pill s-fin"><span class="subj-name">ED.FINANCEIRA</span><span class="teacher-name">Camyla</span></div></td>
+              <td class="class-cell"><div class="class-pill s-red"><span class="subj-name">REDAÇÃO</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Maycon</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">FÍSICA</span><span class="teacher-name">Bene</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h35–10h50</td>
+              <td colspan="6" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h50–11h40</td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Anderson</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-red"><span class="subj-name">REDAÇÃO</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fin"><span class="subj-name">ED.FINANCEIRA</span><span class="teacher-name">Camyla</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">FÍSICA</span><span class="teacher-name">Bene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Andreia</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">11h40–12h30</td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Anderson</span></div></td>
+              <td class="class-cell"><div class="class-pill s-red"><span class="subj-name">REDAÇÃO</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">FÍSICA</span><span class="teacher-name">Bene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Andreia</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- QUA -->
+    <div id="medio-qua" class="day-panel">
+      <div class="schedule-wrapper">
+        <table class="schedule-table">
+          <thead><tr>
+            <th class="time-col">Horário</th>
+            <th>1ª Série A</th><th>1ª Série B</th>
+            <th>2ª Série A</th><th>2ª Série B</th>
+            <th>3ª Série A</th><th>3ª Série B</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td class="time-cell">7h00–7h50</td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Laiene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-gram"><span class="subj-name">GRAMÁTICA</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-art"><span class="subj-name">ARTE</span><span class="teacher-name">Marilice</span></div></td>
+              <td class="class-cell"><div class="class-pill s-pv"><span class="subj-name">PROJ.VIDA</span><span class="teacher-name">Giselle</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">7h50–8h40</td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Laiene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-pv"><span class="subj-name">PROJ.VIDA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-rob"><span class="subj-name">ROBÓTICA</span><span class="teacher-name">Dario</span></div></td>
+              <td class="class-cell"><div class="class-pill s-gram"><span class="subj-name">GRAMÁTICA</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-art"><span class="subj-name">ARTE</span><span class="teacher-name">Marilice</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h40–8h55</td>
+              <td colspan="6" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h55–9h45</td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Laiene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-rob"><span class="subj-name">ROBÓTICA</span><span class="teacher-name">Dario</span></div></td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA A</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-eal"><span class="subj-name">E.ALIMENTOS</span><span class="teacher-name">Paulo</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-gram"><span class="subj-name">GRAMÁTICA</span><span class="teacher-name">Gabriel</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">9h45–10h35</td>
+              <td class="class-cell"><div class="class-pill s-rob"><span class="subj-name">ROBÓTICA</span><span class="teacher-name">Dario</span></div></td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-eal"><span class="subj-name">E.ALIMENTOS</span><span class="teacher-name">Paulo</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Laiene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-gram"><span class="subj-name">GRAMÁTICA</span><span class="teacher-name">Gabriel</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h35–10h50</td>
+              <td colspan="6" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h50–11h40</td>
+              <td class="class-cell"><div class="class-pill s-art"><span class="subj-name">ARTE</span><span class="teacher-name">Marilice</span></div></td>
+              <td class="class-cell"><div class="class-pill s-eal"><span class="subj-name">E.ALIMENTOS</span><span class="teacher-name">Paulo</span></div></td>
+              <td class="class-cell"><div class="class-pill s-gram"><span class="subj-name">GRAMÁTICA</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Laiene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Anderson</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">11h40–12h30</td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Laiene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-gram"><span class="subj-name">GRAMÁTICA</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Anderson</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- QUI -->
+    <div id="medio-qui" class="day-panel">
+      <div class="schedule-wrapper">
+        <table class="schedule-table">
+          <thead><tr>
+            <th class="time-col">Horário</th>
+            <th>1ª Série A</th><th>1ª Série B</th>
+            <th>2ª Série A</th><th>2ª Série B</th>
+            <th>3ª Série A</th><th>3ª Série B</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td class="time-cell">7h00–7h50</td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-soc"><span class="subj-name">SOCIOLOGIA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-gram"><span class="subj-name">GRAMÁTICA</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Izaneo</span></div></td>
+              <td class="class-cell"><div class="class-pill s-lit"><span class="subj-name">LITERATURA</span><span class="teacher-name">Madalena</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">7h50–8h40</td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-gram"><span class="subj-name">GRAMÁTICA</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fil"><span class="subj-name">FILOSOFIA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Izaneo</span></div></td>
+              <td class="class-cell"><div class="class-pill s-lit"><span class="subj-name">LITERATURA</span><span class="teacher-name">Madalena</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h40–8h55</td>
+              <td colspan="6" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h55–9h45</td>
+              <td class="class-cell"><div class="class-pill s-lit"><span class="subj-name">LITERATURA</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-gram"><span class="subj-name">GRAMÁTICA</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Izaneo</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">9h45–10h35</td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-gram"><span class="subj-name">GRAMÁTICA</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-lit"><span class="subj-name">LITERATURA</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Izaneo</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h35–10h50</td>
+              <td colspan="6" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h50–11h40</td>
+              <td class="class-cell"><div class="class-pill s-gram"><span class="subj-name">GRAMÁTICA</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-lit"><span class="subj-name">LITERATURA</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Izaneo</span></div></td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA A</span><span class="teacher-name">Andreia</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">11h40–12h30</td>
+              <td class="class-cell"><div class="class-pill s-gram"><span class="subj-name">GRAMÁTICA</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Anderson</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA A</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fil"><span class="subj-name">FILOSOFIA</span><span class="teacher-name">Giselle</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SEX -->
+    <div id="medio-sex" class="day-panel">
+      <div class="schedule-wrapper">
+        <table class="schedule-table">
+          <thead><tr>
+            <th class="time-col">Horário</th>
+            <th>1ª Série A</th><th>1ª Série B</th>
+            <th>2ª Série A</th><th>2ª Série B</th>
+            <th>3ª Série A</th><th>3ª Série B</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td class="time-cell">7h00–7h50</td>
+              <td class="class-cell"><div class="class-pill s-red"><span class="subj-name">REDAÇÃO</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-pv"><span class="subj-name">PROJ.VIDA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Izaneo</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">7h50–8h40</td>
+              <td class="class-cell"><div class="class-pill s-red"><span class="subj-name">REDAÇÃO</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-soc"><span class="subj-name">SOCIOLOGIA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Izaneo</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h40–8h55</td>
+              <td colspan="6" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h55–9h45</td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-lit"><span class="subj-name">LITERATURA</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fil"><span class="subj-name">FILOSOFIA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Maycon</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Izaneo</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Josoel</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">9h45–10h35</td>
+              <td class="class-cell"><div class="class-pill s-pv"><span class="subj-name">PROJ.VIDA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Maycon</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Anderson</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Izaneo</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Josoel</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h35–10h50</td>
+              <td colspan="6" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h50–11h40</td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-bio"><span class="subj-name">BIOLOGIA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-red"><span class="subj-name">REDAÇÃO</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fil"><span class="subj-name">FILOSOFIA</span><span class="teacher-name">Giselle</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Izaneo</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">11h40–12h30</td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-rob"><span class="subj-name">ROBÓTICA</span><span class="teacher-name">Dario</span></div></td>
+              <td class="class-cell"><div class="class-pill s-red"><span class="subj-name">REDAÇÃO</span><span class="teacher-name">Madalena</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Anderson</span></div></td>
+              <td class="class-cell"><div class="class-pill s-qui"><span class="subj-name">QUÍMICA A</span><span class="teacher-name">Andreia</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /panel-medio -->
+
+  <!-- ===== ENSINO FUNDAMENTAL PANEL ===== -->
+  <div id="panel-fund" class="panel">
+
+    <div class="day-tabs">
+      <button class="day-btn active" onclick="switchDay('fund','seg')">2ª Feira</button>
+      <button class="day-btn" onclick="switchDay('fund','ter')">3ª Feira</button>
+      <button class="day-btn" onclick="switchDay('fund','qua')">4ª Feira</button>
+      <button class="day-btn" onclick="switchDay('fund','qui')">5ª Feira</button>
+      <button class="day-btn" onclick="switchDay('fund','sex')">6ª Feira</button>
+    </div>
+
+    <!-- FUND SEG -->
+    <div id="fund-seg" class="day-panel active">
+      <div class="schedule-wrapper">
+        <table class="schedule-table">
+          <thead><tr>
+            <th class="time-col">Horário</th>
+            <th>6º Ano A</th><th>7º Ano A</th><th>8º Ano A</th><th>9º Ano A</th><th>9º Ano B</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td class="time-cell">7h00–7h50</td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Camile</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Eliene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Gabriel</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">7h50–8h40</td>
+              <td class="class-cell"><div class="class-pill s-art"><span class="subj-name">ARTE</span><span class="teacher-name">Marilice</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Eliene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Gabriel</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h40–8h55</td>
+              <td colspan="5" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h55–9h45</td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Eliene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Camile</span></div></td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">9h45–10h35</td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Eliene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-art"><span class="subj-name">ARTE</span><span class="teacher-name">Marilice</span></div></td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h35–10h50</td>
+              <td colspan="5" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h50–11h40</td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Eliene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Camile</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-cbio"><span class="subj-name">C.BIOLÓGICA</span><span class="teacher-name">Andreia</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FUND TER -->
+    <div id="fund-ter" class="day-panel">
+      <div class="schedule-wrapper">
+        <table class="schedule-table">
+          <thead><tr>
+            <th class="time-col">Horário</th>
+            <th>6º Ano A</th><th>7º Ano A</th><th>8º Ano A</th><th>9º Ano A</th><th>9º Ano B</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td class="time-cell">7h00–7h50</td>
+              <td class="class-cell"><div class="class-pill s-cien"><span class="subj-name">CIÊNCIAS</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Eliene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fin"><span class="subj-name">ED.FINANCEIRA</span><span class="teacher-name">Kary</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-prod"><span class="subj-name">PROD.TEXTO</span><span class="teacher-name">Gabriel</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">7h50–8h40</td>
+              <td class="class-cell"><div class="class-pill s-fin"><span class="subj-name">ED.FINANCEIRA</span><span class="teacher-name">Kary</span></div></td>
+              <td class="class-cell"><div class="class-pill s-cien"><span class="subj-name">CIÊNCIAS</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-cien"><span class="subj-name">CIÊNCIAS</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-prod"><span class="subj-name">PROD.TEXTO</span><span class="teacher-name">Gabriel</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h40–8h55</td>
+              <td colspan="5" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h55–9h45</td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fin"><span class="subj-name">ED.FINANCEIRA</span><span class="teacher-name">Kary</span></div></td>
+              <td class="class-cell"><div class="class-pill s-cien"><span class="subj-name">CIÊNCIAS</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-prod"><span class="subj-name">PROD.TEXTO</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">9h45–10h35</td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Eliene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fin"><span class="subj-name">ED.FINANCEIRA</span><span class="teacher-name">Kary</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h35–10h50</td>
+              <td colspan="5" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h50–11h40</td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Camile</span></div></td>
+              <td class="class-cell"><div class="class-pill s-cien"><span class="subj-name">CIÊNCIAS</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Josoel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-prod"><span class="subj-name">PROD.TEXTO</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fin"><span class="subj-name">ED.FINANCEIRA</span><span class="teacher-name">Kary</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FUND QUA -->
+    <div id="fund-qua" class="day-panel">
+      <div class="schedule-wrapper">
+        <table class="schedule-table">
+          <thead><tr>
+            <th class="time-col">Horário</th>
+            <th>6º Ano A</th><th>7º Ano A</th><th>8º Ano A</th><th>9º Ano A</th><th>9º Ano B</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td class="time-cell">7h00–7h50</td>
+              <td class="class-cell"><div class="class-pill s-prod"><span class="subj-name">PROD.TEXTO</span><span class="teacher-name">Camille</span></div></td>
+              <td class="class-cell"><div class="class-pill s-rob"><span class="subj-name">ROBÓTICA</span><span class="teacher-name">Dario</span></div></td>
+              <td class="class-cell"><div class="class-pill s-cien"><span class="subj-name">CIÊNCIAS</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">C.FÍSICA</span><span class="teacher-name">Paulo</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Eliene</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">7h50–8h40</td>
+              <td class="class-cell"><div class="class-pill s-prod"><span class="subj-name">PROD.TEXTO</span><span class="teacher-name">Camille</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Eliene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-cqui"><span class="subj-name">C.QUÍMICA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-fis"><span class="subj-name">C.FÍSICA</span><span class="teacher-name">Paulo</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h40–8h55</td>
+              <td colspan="5" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h55–9h45</td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Camile</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Eliene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Keylla</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-art"><span class="subj-name">ARTE</span><span class="teacher-name">Marilice</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">9h45–10h35</td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Keylla</span></div></td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Camile</span></div></td>
+              <td class="class-cell"><div class="class-pill s-art"><span class="subj-name">ARTE</span><span class="teacher-name">Marilice</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Eliene</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h35–10h50</td>
+              <td colspan="5" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h50–11h40</td>
+              <td class="class-cell"><div class="class-pill s-hist"><span class="subj-name">HISTÓRIA</span><span class="teacher-name">Eliene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Camile</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Keylla</span></div></td>
+              <td class="class-cell"><div class="class-pill s-rob"><span class="subj-name">ROBÓTICA</span><span class="teacher-name">Dario</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FUND QUI -->
+    <div id="fund-qui" class="day-panel">
+      <div class="schedule-wrapper">
+        <table class="schedule-table">
+          <thead><tr>
+            <th class="time-col">Horário</th>
+            <th>6º Ano A</th><th>7º Ano A</th><th>8º Ano A</th><th>9º Ano A</th><th>9º Ano B</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td class="time-cell">7h00–7h50</td>
+              <td class="class-cell"><div class="class-pill s-liv"><span class="subj-name">LIV</span><span class="teacher-name">Suzelly</span></div></td>
+              <td class="class-cell"><div class="class-pill s-cien"><span class="subj-name">CIÊNCIAS</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Keylla</span></div></td>
+              <td class="class-cell"><div class="class-pill s-art"><span class="subj-name">ARTE</span><span class="teacher-name">Marilice</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">7h50–8h40</td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-liv"><span class="subj-name">LIV</span><span class="teacher-name">Suzelly</span></div></td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Maycon</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Keylla</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Sidimar</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h40–8h55</td>
+              <td colspan="5" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h55–9h45</td>
+              <td class="class-cell"><div class="class-pill s-rob"><span class="subj-name">ROBÓTICA</span><span class="teacher-name">Dario</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-liv"><span class="subj-name">LIV</span><span class="teacher-name">Suzelly</span></div></td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Maycon</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Keylla</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">9h45–10h35</td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Keylla</span></div></td>
+              <td class="class-cell"><div class="class-pill s-rob"><span class="subj-name">ROBÓTICA</span><span class="teacher-name">Dario</span></div></td>
+              <td class="class-cell"><div class="class-pill s-liv"><span class="subj-name">LIV</span><span class="teacher-name">Suzelly</span></div></td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Maycon</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h35–10h50</td>
+              <td colspan="5" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h50–11h40</td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Keylla</span></div></td>
+              <td class="class-cell"><div class="class-pill s-mat"><span class="subj-name">MATEMÁTICA</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Maycon</span></div></td>
+              <td class="class-cell"><div class="class-pill s-rob"><span class="subj-name">ROBÓTICA</span><span class="teacher-name">Dario</span></div></td>
+              <td class="class-cell"><div class="class-pill s-liv"><span class="subj-name">LIV</span><span class="teacher-name">Suzelly</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FUND SEX -->
+    <div id="fund-sex" class="day-panel">
+      <div class="schedule-wrapper">
+        <table class="schedule-table">
+          <thead><tr>
+            <th class="time-col">Horário</th>
+            <th>6º Ano A</th><th>7º Ano A</th><th>8º Ano A</th><th>9º Ano A</th><th>9º Ano B</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td class="time-cell">7h00–7h50</td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Camile</span></div></td>
+              <td class="class-cell"><div class="class-pill s-dig"><span class="subj-name">ED.DIGITAL</span><span class="teacher-name">Dario</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Eliene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Maycon</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">7h50–8h40</td>
+              <td class="class-cell"><div class="class-pill s-dig"><span class="subj-name">ED.DIGITAL</span><span class="teacher-name">Dario</span></div></td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Camile</span></div></td>
+              <td class="class-cell"><div class="class-pill s-geo"><span class="subj-name">GEOGRAFIA</span><span class="teacher-name">Eliene</span></div></td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Keylla</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h40–8h55</td>
+              <td colspan="5" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">8h55–9h45</td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Camile</span></div></td>
+              <td class="class-cell"><div class="class-pill s-edf"><span class="subj-name">ED.FÍSICA</span><span class="teacher-name">Keylla</span></div></td>
+              <td class="class-cell"><div class="class-pill s-prod"><span class="subj-name">PROD.TEXTO</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-dig"><span class="subj-name">ED.DIGITAL</span><span class="teacher-name">Dario</span></div></td>
+              <td class="class-cell"><div class="class-pill s-cqui"><span class="subj-name">C.QUÍMICA</span><span class="teacher-name">Andreia</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">9h45–10h35</td>
+              <td class="class-cell"><div class="class-pill s-cien"><span class="subj-name">CIÊNCIAS</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-prod"><span class="subj-name">PROD.TEXTO</span><span class="teacher-name">Camille</span></div></td>
+              <td class="class-cell"><div class="class-pill s-prod"><span class="subj-name">PROD.TEXTO</span><span class="teacher-name">Gabriel</span></div></td>
+              <td class="class-cell"><div class="class-pill s-cbio"><span class="subj-name">C.BIOLÓGICA</span><span class="teacher-name">Andreia</span></div></td>
+              <td class="class-cell"><div class="class-pill s-dig"><span class="subj-name">ED.DIGITAL</span><span class="teacher-name">Dario</span></div></td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h35–10h50</td>
+              <td colspan="5" class="break-cell">Intervalo</td>
+            </tr>
+            <tr>
+              <td class="time-cell">10h50–11h40</td>
+              <td class="class-cell"><div class="class-pill s-cien"><span class="subj-name">CIÊNCIAS</span><span class="teacher-name">Maisie</span></div></td>
+              <td class="class-cell"><div class="class-pill s-prod"><span class="subj-name">PROD.TEXTO</span><span class="teacher-name">Camille</span></div></td>
+              <td class="class-cell"><div class="class-pill s-dig"><span class="subj-name">ED.DIGITAL</span><span class="teacher-name">Dario</span></div></td>
+              <td class="class-cell"><div class="class-pill s-ing"><span class="subj-name">INGLÊS</span><span class="teacher-name">Maycon</span></div></td>
+              <td class="class-cell"><div class="class-pill s-port"><span class="subj-name">PORTUGUÊS</span><span class="teacher-name">Gabriel</span></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div><!-- /panel-fund -->
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-title">Legenda de Disciplinas</div>
+    <div class="legend-grid">
+      <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>Matemática</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#8b5cf6"></div>Português</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#06b6d4"></div>Física</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#10b981"></div>Química</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#22c55e"></div>Biologia</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>História</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div>Geografia</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ec4899"></div>Arte</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#fb923c"></div>Ed.Física</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#a855f7"></div>Sociologia</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#6366f1"></div>Filosofia</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f97316"></div>Inglês</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#e11d48"></div>Redação</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#7c3aed"></div>Literatura</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#0ea5e9"></div>Proj.Vida</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#84cc16"></div>Robótica</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#d946ef"></div>Gramática</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#2dd4bf"></div>Ciências</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#fbbf24"></div>Ed.Financeira</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#38bdf8"></div>LIV</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#c084fc"></div>Prod.Texto</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#4ade80"></div>Ed.Digital</div>
+    </div>
+  </div>
+
+</div><!-- /content -->
+
+<div class="footer">
+  <strong>EXPO</strong> · Horários de Aulas 2026 · Vigência a partir de 03/08/2026 · Ensino Médio Matutino &amp; Fundamental Anos Finais
+</div>
+
+<script>
+  function switchLevel(level) {
+    // panels
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + level).classList.add('active');
+    // stats
+    document.getElementById('stats-medio').style.display = level === 'medio' ? 'grid' : 'none';
+    document.getElementById('stats-fund').style.display = level === 'fund' ? 'grid' : 'none';
+    // tabs
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  function switchDay(level, day) {
+    const panel = document.getElementById('panel-' + level);
+    panel.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById(level + '-' + day).classList.add('active');
+    panel.querySelectorAll('.day-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>
