@@ -44,23 +44,14 @@
       gap: 16px;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
+    .logo { display: flex; align-items: center; gap: 12px; }
     .logo-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 6px;
+      width: 32px; height: 32px; border-radius: 6px;
       background: linear-gradient(135deg, #4f8ef7, #a78bfa, #34d399);
       position: relative;
     }
     .logo-icon::before, .logo-icon::after {
-      content: '';
-      position: absolute;
-      background: #0a0d14;
+      content: ''; position: absolute; background: #0a0d14;
     }
     .logo-icon::before { width: 9px; height: 9px; left: 3px; top: 3px; }
     .logo-icon::after  { width: 9px; height: 9px; right: 3px; bottom: 3px; }
@@ -68,32 +59,9 @@
     .logo-text h1 { font-size: 18px; font-weight: 700; }
     .logo-text p  { font-size: 12px; color: var(--muted); }
 
-    nav { display: flex; gap: 8px; margin-left: auto; }
+    main { max-width: 1400px; margin: 0 auto; padding: 32px 24px; }
 
-    nav button {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 8px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 14px;
-      transition: all 0.2s;
-    }
-    nav button:hover { background: var(--surface2); }
-    nav button.active { background: var(--accent1); border-color: var(--accent1); }
-
-    main {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 32px 24px;
-    }
-
-    .page-title {
-      text-align: center;
-      margin-bottom: 8px;
-    }
+    .page-title { text-align: center; margin-bottom: 8px; }
     .page-title .small {
       color: var(--accent1);
       font-family: 'Space Grotesk', sans-serif;
@@ -103,23 +71,21 @@
       text-transform: uppercase;
     }
     .page-title h2 {
-      font-size: 48px;
-      font-weight: 700;
-      margin: 8px 0;
+      font-size: 48px; font-weight: 700; margin: 8px 0;
       background: linear-gradient(90deg, #fff, #94a3b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .page-title p { color: var(--muted); font-size: 14px; }
 
-    .segmento-selector {
+    .tabs {
       display: flex;
       justify-content: center;
       gap: 12px;
-      margin: 32px 0 24px;
+      margin: 24px 0;
     }
 
-    .segmento-selector button {
+    .tabs button {
       background: var(--surface);
       border: 1px solid var(--border);
       color: var(--text);
@@ -128,12 +94,8 @@
       cursor: pointer;
       font-family: inherit;
       font-size: 14px;
-      transition: all 0.2s;
     }
-    .segmento-selector button.active {
-      background: var(--accent1);
-      border-color: var(--accent1);
-    }
+    .tabs button.active { background: var(--accent1); border-color: var(--accent1); }
 
     .stats {
       display: grid;
@@ -151,8 +113,7 @@
     }
     .stat-card .number {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 32px;
-      font-weight: 700;
+      font-size: 32px; font-weight: 700;
     }
     .stat-card .label {
       color: var(--muted);
@@ -184,12 +145,9 @@
       font-family: 'Space Grotesk', sans-serif;
       font-weight: 500;
       font-size: 14px;
-      transition: all 0.2s;
     }
-    .dia-selector button:hover { background: var(--surface2); }
     .dia-selector button.active { background: var(--accent1); border-color: var(--accent1); }
 
-    /* === TABELA DE HORÁRIOS === */
     .grade {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -198,18 +156,8 @@
       overflow-x: auto;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 900px;
-    }
-
-    th, td {
-      padding: 14px 16px;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-
+    table { width: 100%; border-collapse: collapse; min-width: 900px; }
+    th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); }
     th {
       background: var(--surface2);
       font-family: 'Space Grotesk', sans-serif;
@@ -219,37 +167,16 @@
       text-transform: uppercase;
       color: var(--muted);
     }
+    td.horario { font-family: 'Space Grotesk', sans-serif; font-size: 14px; color: var(--muted); width: 140px; }
+    td.intervalo { text-align: center; font-style: italic; color: var(--muted); font-size: 12px; letter-spacing: 1px; }
 
-    td.horario {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 14px;
-      color: var(--muted);
-      width: 140px;
-    }
-
-    td.intervalo {
-      text-align: center;
-      font-style: italic;
-      color: var(--muted);
-      font-size: 12px;
-      letter-spacing: 1px;
-    }
-
-    .aula {
-      border-radius: 8px;
-      padding: 10px 14px;
-      border-left: 4px solid;
-    }
-
+    .aula { border-radius: 8px; padding: 10px 14px; border-left: 4px solid; }
     .aula .disciplina {
       font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.5px;
+      font-weight: 600; font-size: 14px; letter-spacing: 0.5px;
     }
     .aula .professor { font-size: 12px; opacity: 0.8; margin-top: 2px; }
 
-    /* === BUSCA DE PROFESSOR === */
     .busca {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -257,21 +184,12 @@
       padding: 24px;
       margin-bottom: 24px;
     }
-
     .busca h3 {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 18px;
-      margin-bottom: 16px;
-      color: var(--accent2);
+      margin-bottom: 16px; color: var(--accent2);
     }
-
-    .busca-row {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
+    .busca-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
     .busca input, .busca select {
       background: var(--bg);
       border: 1px solid var(--border);
@@ -283,17 +201,11 @@
       flex: 1;
       min-width: 200px;
     }
-
     .busca input:focus, .busca select:focus {
       outline: none;
       border-color: var(--accent1);
     }
-
-    .busca-lista {
-      margin-top: 16px;
-      display: none;
-    }
-
+    .busca-lista { margin-top: 16px; display: none; }
     .busca-lista.show { display: block; }
 
     .aula-card {
@@ -308,16 +220,9 @@
       gap: 12px;
       flex-wrap: wrap;
     }
-
-    .aula-card .info {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
+    .aula-card .info { display: flex; flex-direction: column; gap: 2px; }
     .aula-card .info strong { font-size: 14px; }
     .aula-card .info span { font-size: 12px; color: var(--muted); }
-
     .aula-card .horario-tag {
       background: var(--bg);
       padding: 6px 12px;
@@ -342,7 +247,6 @@
       padding: 16px 20px;
       margin-top: 24px;
     }
-
     .legenda h4 {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 12px;
@@ -351,37 +255,21 @@
       margin-bottom: 12px;
       text-transform: uppercase;
     }
+    .legenda-itens { display: flex; flex-wrap: wrap; gap: 12px; }
+    .legenda-item { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+    .legenda-dot { width: 12px; height: 12px; border-radius: 3px; }
 
-    .legenda-itens {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .legenda-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-    }
-
-    .legenda-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 3px;
-    }
-
-    /* Cor da disciplina por aula */
+    /* Cores das disciplinas */
     .disc-MATEMÁTICA  { color: #3b82f6; border-color: #3b82f6; background: rgba(59,130,246,0.08); }
     .disc-PORTUGUÊS   { color: #a78bfa; border-color: #a78bfa; background: rgba(167,139,250,0.08); }
     .disc-INGLÊS      { color: #a78bfa; border-color: #a78bfa; background: rgba(167,139,250,0.08); }
     .disc-PROD.TEXTO  { color: #c084fc; border-color: #c084fc; background: rgba(192,132,252,0.08); }
     .disc-CIÊNCIAS    { color: #06b6d4; border-color: #06b6d4; background: rgba(6,182,212,0.08); }
-    .disc-C\.FÍSICA   { color: #facc15; border-color: #facc15; background: rgba(250,204,21,0.08); }
-    .disc-C\.QUÍMICA  { color: #facc15; border-color: #facc15; background: rgba(250,204,21,0.08); }
+    .disc-C.FÍSICA    { color: #facc15; border-color: #facc15; background: rgba(250,204,21,0.08); }
+    .disc-C.QUÍMICA   { color: #facc15; border-color: #facc15; background: rgba(250,204,21,0.08); }
     .disc-HISTÓRIA    { color: #ef4444; border-color: #ef4444; background: rgba(239,68,68,0.08); }
     .disc-GEOGRAFIA   { color: #ef4444; border-color: #ef4444; background: rgba(239,68,68,0.08); }
-    .disc-ED\.FÍSICA  { color: #f97316; border-color: #f97316; background: rgba(249,115,22,0.08); }
+    .disc-ED.FÍSICA   { color: #f97316; border-color: #f97316; background: rgba(249,115,22,0.08); }
     .disc-ARTE        { color: #ec4899; border-color: #ec4899; background: rgba(236,72,153,0.08); }
     .disc-ROBÓTICA    { color: #16a34a; border-color: #16a34a; background: rgba(22,163,74,0.08); }
 
@@ -410,18 +298,18 @@
     <p>Ensino Médio Matutino · Ensino Fundamental — Anos Finais (6º ao 9º Ano)</p>
   </section>
 
-  <nav style="justify-content: center; margin: 24px 0; display: flex;">
-    <button class="tab-btn active" data-tab="grade">📅 Grade Completa</button>
-    <button class="tab-btn" data-tab="busca">🔎 Buscar Professor</button>
-  </nav>
+  <div class="tabs">
+    <button id="tab-grade-btn" class="active">📅 Grade Completa</button>
+    <button id="tab-busca-btn">🔎 Buscar Professor</button>
+  </div>
 
   <!-- ABA: GRADE -->
   <section id="tab-grade">
     <div class="stats">
       <div class="stat-card"><div class="number">5</div><div class="label">Turmas</div></div>
       <div class="stat-card"><div class="number">4</div><div class="label">Dias de Aula</div></div>
-      <div class="stat-card"><div class="number">15+</div><div class="label">Professores</div></div>
-      <div class="stat-card"><div class="number">18+</div><div class="label">Disciplinas</div></div>
+      <div class="stat-card"><div class="number">8</div><div class="label">Professores</div></div>
+      <div class="stat-card"><div class="number">12</div><div class="label">Disciplinas</div></div>
     </div>
 
     <div class="dia-selector" id="dia-selector"></div>
@@ -464,47 +352,241 @@
 
   <section class="legenda">
     <h4>Legenda de Disciplinas</h4>
-    <div class="legenda-itens" id="legenda-itens"></div>
+    <div class="legenda-itens">
+      <div class="legenda-item"><div class="legenda-dot" style="background:#3b82f6"></div>Matemática</div>
+      <div class="legenda-item"><div class="legenda-dot" style="background:#a78bfa"></div>Português</div>
+      <div class="legenda-item"><div class="legenda-dot" style="background:#facc15"></div>Física / Química</div>
+      <div class="legenda-item"><div class="legenda-dot" style="background:#06b6d4"></div>Biologia / Ciências</div>
+      <div class="legenda-item"><div class="legenda-dot" style="background:#ef4444"></div>História / Geografia</div>
+      <div class="legenda-item"><div class="legenda-dot" style="background:#f97316"></div>Ed.Física</div>
+      <div class="legenda-item"><div class="legenda-dot" style="background:#ec4899"></div>Arte</div>
+      <div class="legenda-item"><div class="legenda-dot" style="background:#c084fc"></div>Inglês / Prod.Texto</div>
+      <div class="legenda-item"><div class="legenda-dot" style="background:#16a34a"></div>Robótica</div>
+    </div>
   </section>
 </main>
 
 <script>
 /* =====================================================
-   DADOS — carregados do arquivo dados.json
+   DADOS — embutidos diretamente no HTML (funciona offline)
    ===================================================== */
-let DADOS = null;
-
-async function carregarDados() {
-  try {
-    const resp = await fetch('./dados.json?_=' + Date.now());
-    DADOS = await resp.json();
-    renderGrade();
-    renderDiaSelector();
-    renderLegenda();
-    renderBusca();
-  } catch (e) {
-    document.body.innerHTML = '<div style="padding:40px;text-align:center;color:#ef4444;">Erro ao carregar dados: ' + e.message + '</div>';
+const DADOS = {
+  turmas: [
+    { id: "6A", nome: "6º ANO A" },
+    { id: "7A", nome: "7º ANO A" },
+    { id: "8A", nome: "8º ANO A" },
+    { id: "9A", nome: "9º ANO A" },
+    { id: "9B", nome: "9º ANO B" }
+  ],
+  dias: ["2ª FEIRA", "3ª FEIRA", "4ª FEIRA", "5ª FEIRA", "6ª FEIRA"],
+  aulas: {
+    "2": {
+      "6A": [
+        { h: "7h00-7h50",  d: "PROD.TEXTO",  p: "Camille" },
+        { h: "7h50-8h40",  d: "PROD.TEXTO",  p: "Camille" },
+        { h: "8h55-9h45",  d: "PORTUGUÊS",   p: "Camille" },
+        { h: "9h45-10h35", d: "ED.FÍSICA",   p: "Keylla" },
+        { h: "10h50-11h40", d: "HISTÓRIA",   p: "Eliene" }
+      ],
+      "7A": [
+        { h: "7h00-7h50",  d: "ROBÓTICA",    p: "Dario" },
+        { h: "7h50-8h40",  d: "GEOGRAFIA",   p: "Eliene" },
+        { h: "8h55-9h45",  d: "GEOGRAFIA",   p: "Eliene" },
+        { h: "9h45-10h35", d: "PORTUGUÊS",   p: "Camille" },
+        { h: "10h50-11h40", d: "INGLÊS",     p: "Camille" }
+      ],
+      "8A": [
+        { h: "7h00-7h50",  d: "CIÊNCIAS",    p: "Andreia" },
+        { h: "7h50-8h40",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "8h55-9h45",  d: "ED.FÍSICA",   p: "Keylla" },
+        { h: "9h45-10h35", d: "ARTE",        p: "Marilice" },
+        { h: "10h50-11h40", d: "MATEMÁTICA", p: "Sidimar" }
+      ],
+      "9A": [
+        { h: "7h00-7h50",  d: "C.FÍSICA",    p: "Paulo" },
+        { h: "7h50-8h40",  d: "C.QUÍMICA",   p: "Andreia" },
+        { h: "8h55-9h45",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "9h45-10h35", d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "10h50-11h40", d: "ED.FÍSICA",  p: "Keylla" }
+      ],
+      "9B": [
+        { h: "7h00-7h50",  d: "GEOGRAFIA",   p: "Eliene" },
+        { h: "7h50-8h40",  d: "C.FÍSICA",    p: "Paulo" },
+        { h: "8h55-9h45",  d: "ARTE",        p: "Marilice" },
+        { h: "9h45-10h35", d: "GEOGRAFIA",   p: "Eliene" },
+        { h: "10h50-11h40", d: "ROBÓTICA",   p: "Dario" }
+      ]
+    },
+    "3": {
+      "6A": [
+        { h: "7h00-7h50",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "7h50-8h40",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "8h55-9h45",  d: "PORTUGUÊS",   p: "Camille" },
+        { h: "9h45-10h35", d: "ED.FÍSICA",   p: "Keylla" },
+        { h: "10h50-11h40", d: "HISTÓRIA",   p: "Eliene" }
+      ],
+      "7A": [
+        { h: "7h00-7h50",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "7h50-8h40",  d: "CIÊNCIAS",    p: "Andreia" },
+        { h: "8h55-9h45",  d: "GEOGRAFIA",   p: "Eliene" },
+        { h: "9h45-10h35", d: "PORTUGUÊS",   p: "Camille" },
+        { h: "10h50-11h40", d: "INGLÊS",     p: "Camille" }
+      ],
+      "8A": [
+        { h: "7h00-7h50",  d: "C.FÍSICA",    p: "Paulo" },
+        { h: "7h50-8h40",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "8h55-9h45",  d: "HISTÓRIA",    p: "Eliene" },
+        { h: "9h45-10h35", d: "ARTE",        p: "Marilice" },
+        { h: "10h50-11h40", d: "PORTUGUÊS",  p: "Camille" }
+      ],
+      "9A": [
+        { h: "7h00-7h50",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "7h50-8h40",  d: "C.QUÍMICA",   p: "Andreia" },
+        { h: "8h55-9h45",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "9h45-10h35", d: "GEOGRAFIA",   p: "Eliene" },
+        { h: "10h50-11h40", d: "INGLÊS",     p: "Camille" }
+      ],
+      "9B": [
+        { h: "7h00-7h50",  d: "C.FÍSICA",    p: "Paulo" },
+        { h: "7h50-8h40",  d: "C.FÍSICA",    p: "Paulo" },
+        { h: "8h55-9h45",  d: "ARTE",        p: "Marilice" },
+        { h: "9h45-10h35", d: "HISTÓRIA",    p: "Eliene" },
+        { h: "10h50-11h40", d: "PORTUGUÊS",  p: "Camille" }
+      ]
+    },
+    "4": {
+      "6A": [
+        { h: "7h00-7h50",  d: "HISTÓRIA",    p: "Eliene" },
+        { h: "7h50-8h40",  d: "PORTUGUÊS",   p: "Camille" },
+        { h: "8h55-9h45",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "9h45-10h35", d: "CIÊNCIAS",    p: "Andreia" },
+        { h: "10h50-11h40", d: "ED.FÍSICA",  p: "Keylla" }
+      ],
+      "7A": [
+        { h: "7h00-7h50",  d: "PORTUGUÊS",   p: "Camille" },
+        { h: "7h50-8h40",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "8h55-9h45",  d: "PORTUGUÊS",   p: "Camille" },
+        { h: "9h45-10h35", d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "10h50-11h40", d: "ED.FÍSICA",  p: "Keylla" }
+      ],
+      "8A": [
+        { h: "7h00-7h50",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "7h50-8h40",  d: "C.FÍSICA",    p: "Paulo" },
+        { h: "8h55-9h45",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "9h45-10h35", d: "HISTÓRIA",    p: "Eliene" },
+        { h: "10h50-11h40", d: "INGLÊS",     p: "Camille" }
+      ],
+      "9A": [
+        { h: "7h00-7h50",  d: "C.FÍSICA",    p: "Paulo" },
+        { h: "7h50-8h40",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "8h55-9h45",  d: "PORTUGUÊS",   p: "Camille" },
+        { h: "9h45-10h35", d: "ARTE",        p: "Marilice" },
+        { h: "10h50-11h40", d: "ED.FÍSICA",  p: "Keylla" }
+      ],
+      "9B": [
+        { h: "7h00-7h50",  d: "GEOGRAFIA",   p: "Eliene" },
+        { h: "7h50-8h40",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "8h55-9h45",  d: "INGLÊS",      p: "Camille" },
+        { h: "9h45-10h35", d: "PORTUGUÊS",   p: "Camille" },
+        { h: "10h50-11h40", d: "MATEMÁTICA", p: "Sidimar" }
+      ]
+    },
+    "5": {
+      "6A": [
+        { h: "7h00-7h50",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "7h50-8h40",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "8h55-9h45",  d: "CIÊNCIAS",    p: "Andreia" },
+        { h: "9h45-10h35", d: "PORTUGUÊS",   p: "Camille" },
+        { h: "10h50-11h40", d: "HISTÓRIA",   p: "Eliene" }
+      ],
+      "7A": [
+        { h: "7h00-7h50",  d: "CIÊNCIAS",    p: "Andreia" },
+        { h: "7h50-8h40",  d: "GEOGRAFIA",   p: "Eliene" },
+        { h: "8h55-9h45",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "9h45-10h35", d: "ED.FÍSICA",   p: "Keylla" },
+        { h: "10h50-11h40", d: "HISTÓRIA",   p: "Eliene" }
+      ],
+      "8A": [
+        { h: "7h00-7h50",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "7h50-8h40",  d: "PORTUGUÊS",   p: "Camille" },
+        { h: "8h55-9h45",  d: "INGLÊS",      p: "Camille" },
+        { h: "9h45-10h35", d: "CIÊNCIAS",    p: "Andreia" },
+        { h: "10h50-11h40", d: "MATEMÁTICA", p: "Sidimar" }
+      ],
+      "9A": [
+        { h: "7h00-7h50",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "7h50-8h40",  d: "PORTUGUÊS",   p: "Camille" },
+        { h: "8h55-9h45",  d: "C.QUÍMICA",   p: "Andreia" },
+        { h: "9h45-10h35", d: "GEOGRAFIA",   p: "Eliene" },
+        { h: "10h50-11h40", d: "ED.FÍSICA",  p: "Keylla" }
+      ],
+      "9B": [
+        { h: "7h00-7h50",  d: "ARTE",        p: "Marilice" },
+        { h: "7h50-8h40",  d: "HISTÓRIA",    p: "Eliene" },
+        { h: "8h55-9h45",  d: "GEOGRAFIA",   p: "Eliene" },
+        { h: "9h45-10h35", d: "ARTE",        p: "Marilice" },
+        { h: "10h50-11h40", d: "INGLÊS",     p: "Camille" }
+      ]
+    },
+    "6": {
+      "6A": [
+        { h: "7h00-7h50",  d: "GEOGRAFIA",   p: "Eliene" },
+        { h: "7h50-8h40",  d: "CIÊNCIAS",    p: "Andreia" },
+        { h: "8h55-9h45",  d: "PORTUGUÊS",   p: "Camille" },
+        { h: "9h45-10h35", d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "10h50-11h40", d: "ED.FÍSICA",  p: "Keylla" }
+      ],
+      "7A": [
+        { h: "7h00-7h50",  d: "INGLÊS",      p: "Camille" },
+        { h: "7h50-8h40",  d: "ROBÓTICA",    p: "Dario" },
+        { h: "8h55-9h45",  d: "HISTÓRIA",    p: "Eliene" },
+        { h: "9h45-10h35", d: "CIÊNCIAS",    p: "Andreia" },
+        { h: "10h50-11h40", d: "MATEMÁTICA", p: "Sidimar" }
+      ],
+      "8A": [
+        { h: "7h00-7h50",  d: "PORTUGUÊS",   p: "Camille" },
+        { h: "7h50-8h40",  d: "INGLÊS",      p: "Camille" },
+        { h: "8h55-9h45",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "9h45-10h35", d: "CIÊNCIAS",    p: "Andreia" },
+        { h: "10h50-11h40", d: "ED.FÍSICA",  p: "Keylla" }
+      ],
+      "9A": [
+        { h: "7h00-7h50",  d: "INGLÊS",      p: "Camille" },
+        { h: "7h50-8h40",  d: "GEOGRAFIA",   p: "Eliene" },
+        { h: "8h55-9h45",  d: "C.QUÍMICA",   p: "Andreia" },
+        { h: "9h45-10h35", d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "10h50-11h40", d: "ARTE",       p: "Marilice" }
+      ],
+      "9B": [
+        { h: "7h00-7h50",  d: "PORTUGUÊS",   p: "Camille" },
+        { h: "7h50-8h40",  d: "MATEMÁTICA",  p: "Sidimar" },
+        { h: "8h55-9h45",  d: "C.QUÍMICA",   p: "Andreia" },
+        { h: "9h45-10h35", d: "PORTUGUÊS",   p: "Camille" },
+        { h: "10h50-11h40", d: "GEOGRAFIA",  p: "Eliene" }
+      ]
+    }
   }
-}
+};
 
 /* =====================================================
    GRADE
    ===================================================== */
-let diaAtual = '4';
+let diaAtual = "4";
+let tabAtual = "grade";
 
 function renderDiaSelector() {
-  const sel = document.getElementById('dia-selector');
-  sel.innerHTML = '';
+  const sel = document.getElementById("dia-selector");
+  sel.innerHTML = "";
   DADOS.dias.forEach((dia, i) => {
-    const btn = document.createElement('button');
+    const btn = document.createElement("button");
     btn.textContent = dia;
     const codigo = String(i + 2);
     btn.dataset.dia = codigo;
-    if (codigo === diaAtual) btn.classList.add('active');
+    if (codigo === diaAtual) btn.classList.add("active");
     btn.onclick = () => {
       diaAtual = codigo;
-      document.querySelectorAll('#dia-selector button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      document.querySelectorAll("#dia-selector button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
       renderGrade();
     };
     sel.appendChild(btn);
@@ -512,41 +594,42 @@ function renderDiaSelector() {
 }
 
 function renderGrade() {
-  const body = document.getElementById('grade-body');
-  body.innerHTML = '';
+  const body = document.getElementById("grade-body");
+  body.innerHTML = "";
   const aulas = DADOS.aulas[diaAtual] || {};
 
-  // Horários da manhã (com intervalo 8h40-8h55)
   const linhas = [
-    { inicio: '7h00',  fim: '7h50',  key: '7h00-7h50' },
-    { inicio: '7h50',  fim: '8h40',  key: '7h50-8h40' },
-    { tipo: 'intervalo', label: 'INTERVALO 8h40–8h55' },
-    { inicio: '8h55',  fim: '9h45',  key: '8h55-9h45' },
-    { inicio: '9h45',  fim: '10h35', key: '9h45-10h35' },
-    { tipo: 'intervalo', label: 'INTERVALO 10h35–10h50' },
-    { inicio: '10h50', fim: '11h40', key: '10h50-11h40' }
+    { h: "7h00-7h50",    key: "7h00-7h50" },
+    { h: "7h50-8h40",    key: "7h50-8h40" },
+    { tipo: "intervalo", label: "INTERVALO 8h40–8h55" },
+    { h: "8h55-9h45",    key: "8h55-9h45" },
+    { h: "9h45-10h35",   key: "9h45-10h35" },
+    { tipo: "intervalo", label: "INTERVALO 10h35–10h50" },
+    { h: "10h50-11h40",  key: "10h50-11h40" }
   ];
 
   linhas.forEach(linha => {
-    const tr = document.createElement('tr');
+    const tr = document.createElement("tr");
 
-    if (linha.tipo === 'intervalo') {
+    if (linha.tipo === "intervalo") {
       tr.innerHTML = `<td colspan="6" class="intervalo">— ${linha.label} —</td>`;
     } else {
-      const tdH = document.createElement('td');
-      tdH.className = 'horario';
+      const tdH = document.createElement("td");
+      tdH.className = "horario";
       tdH.textContent = linha.key;
       tr.appendChild(tdH);
 
       DADOS.turmas.forEach(turma => {
-        const td = document.createElement('td');
-        const aula = (aulas[turma.id] || []).find(a => a.horario === linha.key);
+        const td = document.createElement("td");
+        const aula = (aulas[turma.id] || []).find(a => a.h === linha.key);
         if (aula) {
-          const div = document.createElement('div');
-          div.className = 'aula disc-' + aula.disciplina;
+          const div = document.createElement("div");
+          // usar classe segura: trocar ponto por underline e remover acentos opcionais
+          const clsDisc = "disc-" + aula.d.replace(/\./g, "");
+          div.className = "aula " + clsDisc;
           div.innerHTML = `
-            <div class="disciplina">${aula.disciplina}</div>
-            <div class="professor">${aula.professor}</div>
+            <div class="disciplina">${aula.d}</div>
+            <div class="professor">${aula.p}</div>
           `;
           td.appendChild(div);
         }
@@ -559,63 +642,19 @@ function renderGrade() {
 }
 
 /* =====================================================
-   LEGENDA
-   ===================================================== */
-function renderLegenda() {
-  const cont = document.getElementById('legenda-itens');
-  cont.innerHTML = '';
-  // Constrói legenda a partir dos professores
-  const cores = new Set();
-  DADOS.professores.forEach(p => {
-    cores.add(JSON.stringify({ disciplina: p.disciplina, cor: p.cor }));
-  });
-  // Adiciona cores fixas por disciplina
-  const discCores = [
-    { d: 'Matemática', c: '#3b82f6' },
-    { d: 'Português',  c: '#a78bfa' },
-    { d: 'Física',     c: '#facc15' },
-    { d: 'Química',    c: '#facc15' },
-    { d: 'Biologia',   c: '#06b6d4' },
-    { d: 'História',   c: '#ef4444' },
-    { d: 'Geografia',  c: '#ef4444' },
-    { d: 'Arte',       c: '#ec4899' },
-    { d: 'Ed.Física',  c: '#f97316' },
-    { d: 'Sociologia', c: '#fb923c' },
-    { d: 'Filosofia',  c: '#fb923c' },
-    { d: 'Inglês',     c: '#c084fc' },
-    { d: 'Redação',    c: '#c084fc' },
-    { d: 'Literatura', c: '#c084fc' },
-    { d: 'Proj.Vida',  c: '#34d399' },
-    { d: 'Robótica',   c: '#16a34a' },
-    { d: 'Gramática',  c: '#a78bfa' },
-    { d: 'Ciências',   c: '#06b6d4' },
-    { d: 'Ed.Financeira', c: '#facc15' },
-    { d: 'LIV',        c: '#06b6d4' },
-    { d: 'Prod.Texto', c: '#c084fc' },
-    { d: 'Ed.Digital', c: '#34d399' }
-  ];
-  discCores.forEach(item => {
-    const el = document.createElement('div');
-    el.className = 'legenda-item';
-    el.innerHTML = `<div class="legenda-dot" style="background:${item.c}"></div>${item.d}`;
-    cont.appendChild(el);
-  });
-}
-
-/* =====================================================
    BUSCA
    ===================================================== */
-function renderBusca() {
-  const input = document.getElementById('busca-nome');
-  const select = document.getElementById('busca-dia');
-  const lista = document.getElementById('busca-resultados');
+function setupBusca() {
+  const input = document.getElementById("busca-nome");
+  const select = document.getElementById("busca-dia");
+  const lista = document.getElementById("busca-resultados");
 
   function atualizar() {
     const termo = input.value.trim().toLowerCase();
     const dia = select.value;
 
     if (!termo) {
-      lista.classList.remove('show');
+      lista.classList.remove("show");
       return;
     }
 
@@ -624,37 +663,36 @@ function renderBusca() {
       if (dia && codDia !== dia) return;
       Object.keys(DADOS.aulas[codDia]).forEach(turmaId => {
         DADOS.aulas[codDia][turmaId].forEach(aula => {
-          if (aula.professor.toLowerCase().includes(termo)) {
+          if (aula.p.toLowerCase().includes(termo)) {
             resultados.push({
               dia: codDia,
               diaNome: DADOS.dias[parseInt(codDia) - 2],
               turma: DADOS.turmas.find(t => t.id === turmaId).nome,
-              horario: aula.horario,
-              disciplina: aula.disciplina,
-              professor: aula.professor
+              horario: aula.h,
+              disciplina: aula.d,
+              professor: aula.p
             });
           }
         });
       });
     });
 
-    lista.classList.add('show');
+    lista.classList.add("show");
     if (resultados.length === 0) {
       lista.innerHTML = '<div class="empty-state">Nenhuma aula encontrada para esse professor.</div>';
     } else {
-      // Agrupa por dia
       const porDia = {};
       resultados.forEach(r => {
         if (!porDia[r.diaNome]) porDia[r.diaNome] = [];
         porDia[r.diaNome].push(r);
       });
 
-      let html = `<div style="margin-bottom:8px;color:var(--accent3);font-weight:600;">${resultados.length} aula(s) encontrada(s)</div>`;
+      let html = `<div style="margin-bottom:12px;color:var(--accent3);font-weight:600;">${resultados.length} aula(s) encontrada(s)</div>`;
       Object.keys(porDia).forEach(diaNome => {
-        html += `<div style="margin-top:12px;font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:1px;color:var(--accent2);text-transform:uppercase;">${diaNome}</div>`;
+        html += `<div style="margin-top:16px;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:1px;color:var(--accent2);text-transform:uppercase;">${diaNome}</div>`;
         porDia[diaNome].forEach(r => {
           html += `
-            <div class="aula-card disc-${r.disciplina}">
+            <div class="aula-card">
               <div class="info">
                 <strong>${r.disciplina}</strong>
                 <span>${r.turma} · ${r.professor}</span>
@@ -668,34 +706,38 @@ function renderBusca() {
     }
   }
 
-  input.addEventListener('input', atualizar);
-  select.addEventListener('change', atualizar);
+  input.addEventListener("input", atualizar);
+  select.addEventListener("change", atualizar);
 }
 
 /* =====================================================
    TABS
    ===================================================== */
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const tab = btn.dataset.tab;
-    document.getElementById('tab-grade').style.display = tab === 'grade' ? 'block' : 'none';
-    document.getElementById('tab-busca').style.display = tab === 'busca' ? 'block' : 'none';
-  });
+document.getElementById("tab-grade-btn").addEventListener("click", () => {
+  tabAtual = "grade";
+  document.getElementById("tab-grade-btn").classList.add("active");
+  document.getElementById("tab-busca-btn").classList.remove("active");
+  document.getElementById("tab-grade").style.display = "block";
+  document.getElementById("tab-busca").style.display = "none";
+});
+
+document.getElementById("tab-busca-btn").addEventListener("click", () => {
+  tabAtual = "busca";
+  document.getElementById("tab-busca-btn").classList.add("active");
+  document.getElementById("tab-grade-btn").classList.remove("active");
+  document.getElementById("tab-grade").style.display = "none";
+  document.getElementById("tab-busca").style.display = "block";
+  document.getElementById("busca-nome").focus();
 });
 
 /* =====================================================
    PROTEÇÕES BÁSICAS
    ===================================================== */
-// Desabilita clique direito
-document.addEventListener('contextmenu', e => e.preventDefault());
-// Desabilita atalhos comuns de "ver código"
-document.addEventListener('keydown', e => {
-  // F12, Ctrl+U, Ctrl+S, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J
-  if (e.key === 'F12' ||
-      (e.ctrlKey && ['u','s','U','S'].includes(e.key)) ||
-      (e.ctrlKey && e.shiftKey && ['I','i','C','c','J','j'].includes(e.key))) {
+document.addEventListener("contextmenu", e => e.preventDefault());
+document.addEventListener("keydown", e => {
+  if (e.key === "F12" ||
+      (e.ctrlKey && ["u","s","U","S"].includes(e.key)) ||
+      (e.ctrlKey && e.shiftKey && ["I","i","C","c","J","j"].includes(e.key))) {
     e.preventDefault();
     return false;
   }
@@ -704,7 +746,9 @@ document.addEventListener('keydown', e => {
 /* =====================================================
    INICIALIZAÇÃO
    ===================================================== */
-carregarDados();
+renderDiaSelector();
+renderGrade();
+setupBusca();
 </script>
 
 </body>
