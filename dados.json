@@ -1,0 +1,221 @@
+{
+  "config": {
+    "titulo": "Grade Escolar Completa",
+    "subtitulo": "Ensino Médio Matutino · Ensino Fundamental — Anos Finais (6º ao 9º Ano)",
+    "horario_turmas_fundamental": "7h00",
+    "horario_turmas_medio": "7h00",
+    "intervalo_horario": "8h40–8h55"
+  },
+  "turmas": [
+    { "id": "6A", "nome": "6º ANO A", "segmento": "fundamental" },
+    { "id": "7A", "nome": "7º ANO A", "segmento": "fundamental" },
+    { "id": "8A", "nome": "8º ANO A", "segmento": "fundamental" },
+    { "id": "9A", "nome": "9º ANO A", "segmento": "fundamental" },
+    { "id": "9B", "nome": "9º ANO B", "segmento": "fundamental" }
+  ],
+  "dias": ["2ª FEIRA", "3ª FEIRA", "4ª FEIRA", "5ª FEIRA", "6ª FEIRA"],
+  "horarios": [
+    { "inicio": "7h00", "fim": "7h50", "label": "1º TEMPO" },
+    { "inicio": "7h50", "fim": "8h40", "label": "2º TEMPO" },
+    { "inicio": "8h55", "fim": "9h45", "label": "3º TEMPO" },
+    { "inicio": "9h45", "fim": "10h35", "label": "4º TEMPO" },
+    { "inicio": "10h50", "fim": "11h40", "label": "5º TEMPO" }
+  ],
+  "aulas": {
+    "2": {
+      "6A": [
+        { "horario": "7h00-7h50", "disciplina": "PROD.TEXTO", "professor": "Camille" },
+        { "horario": "7h50-8h40", "disciplina": "PROD.TEXTO", "professor": "Camille" },
+        { "horario": "8h55-9h45", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "9h45-10h35", "disciplina": "ED.FÍSICA", "professor": "Keylla" },
+        { "horario": "10h50-11h40", "disciplina": "HISTÓRIA", "professor": "Eliene" }
+      ],
+      "7A": [
+        { "horario": "7h00-7h50", "disciplina": "ROBÓTICA", "professor": "Dario" },
+        { "horario": "7h50-8h40", "disciplina": "GEOGRAFIA", "professor": "Eliene" },
+        { "horario": "8h55-9h45", "disciplina": "GEOGRAFIA", "professor": "Eliene" },
+        { "horario": "9h45-10h35", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "10h50-11h40", "disciplina": "INGLÊS", "professor": "Camille" }
+      ],
+      "8A": [
+        { "horario": "7h00-7h50", "disciplina": "CIÊNCIAS", "professor": "Andreia" },
+        { "horario": "7h50-8h40", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "8h55-9h45", "disciplina": "ED.FÍSICA", "professor": "Keylla" },
+        { "horario": "9h45-10h35", "disciplina": "ARTE", "professor": "Marilice" },
+        { "horario": "10h50-11h40", "disciplina": "MATEMÁTICA", "professor": "Sidimar" }
+      ],
+      "9A": [
+        { "horario": "7h00-7h50", "disciplina": "C.FÍSICA", "professor": "Paulo" },
+        { "horario": "7h50-8h40", "disciplina": "C.QUÍMICA", "professor": "Andreia" },
+        { "horario": "8h55-9h45", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "9h45-10h35", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "10h50-11h40", "disciplina": "ED.FÍSICA", "professor": "Keylla" }
+      ],
+      "9B": [
+        { "horario": "7h00-7h50", "disciplina": "GEOGRAFIA", "professor": "Eliene" },
+        { "horario": "7h50-8h40", "disciplina": "C.FÍSICA", "professor": "Paulo" },
+        { "horario": "8h55-9h45", "disciplina": "ARTE", "professor": "Marilice" },
+        { "horario": "9h45-10h35", "disciplina": "GEOGRAFIA", "professor": "Eliene" },
+        { "horario": "10h50-11h40", "disciplina": "ROBÓTICA", "professor": "Dario" }
+      ]
+    },
+    "3": {
+      "6A": [
+        { "horario": "7h00-7h50", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "7h50-8h40", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "8h55-9h45", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "9h45-10h35", "disciplina": "ED.FÍSICA", "professor": "Keylla" },
+        { "horario": "10h50-11h40", "disciplina": "HISTÓRIA", "professor": "Eliene" }
+      ],
+      "7A": [
+        { "horario": "7h00-7h50", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "7h50-8h40", "disciplina": "CIÊNCIAS", "professor": "Andreia" },
+        { "horario": "8h55-9h45", "disciplina": "GEOGRAFIA", "professor": "Eliene" },
+        { "horario": "9h45-10h35", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "10h50-11h40", "disciplina": "INGLÊS", "professor": "Camille" }
+      ],
+      "8A": [
+        { "horario": "7h00-7h50", "disciplina": "C.FÍSICA", "professor": "Paulo" },
+        { "horario": "7h50-8h40", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "8h55-9h45", "disciplina": "HISTÓRIA", "professor": "Eliene" },
+        { "horario": "9h45-10h35", "disciplina": "ARTE", "professor": "Marilice" },
+        { "horario": "10h50-11h40", "disciplina": "PORTUGUÊS", "professor": "Camille" }
+      ],
+      "9A": [
+        { "horario": "7h00-7h50", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "7h50-8h40", "disciplina": "C.QUÍMICA", "professor": "Andreia" },
+        { "horario": "8h55-9h45", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "9h45-10h35", "disciplina": "GEOGRAFIA", "professor": "Eliene" },
+        { "horario": "10h50-11h40", "disciplina": "INGLÊS", "professor": "Camille" }
+      ],
+      "9B": [
+        { "horario": "7h00-7h50", "disciplina": "C.FÍSICA", "professor": "Paulo" },
+        { "horario": "7h50-8h40", "disciplina": "C.FÍSICA", "professor": "Paulo" },
+        { "horario": "8h55-9h45", "disciplina": "ARTE", "professor": "Marilice" },
+        { "horario": "9h45-10h35", "disciplina": "HISTÓRIA", "professor": "Eliene" },
+        { "horario": "10h50-11h40", "disciplina": "PORTUGUÊS", "professor": "Camille" }
+      ]
+    },
+    "4": {
+      "6A": [
+        { "horario": "7h00-7h50", "disciplina": "HISTÓRIA", "professor": "Eliene" },
+        { "horario": "7h50-8h40", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "8h55-9h45", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "9h45-10h35", "disciplina": "CIÊNCIAS", "professor": "Andreia" },
+        { "horario": "10h50-11h40", "disciplina": "ED.FÍSICA", "professor": "Keylla" }
+      ],
+      "7A": [
+        { "horario": "7h00-7h50", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "7h50-8h40", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "8h55-9h45", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "9h45-10h35", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "10h50-11h40", "disciplina": "ED.FÍSICA", "professor": "Keylla" }
+      ],
+      "8A": [
+        { "horario": "7h00-7h50", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "7h50-8h40", "disciplina": "C.FÍSICA", "professor": "Paulo" },
+        { "horario": "8h55-9h45", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "9h45-10h35", "disciplina": "HISTÓRIA", "professor": "Eliene" },
+        { "horario": "10h50-11h40", "disciplina": "INGLÊS", "professor": "Camille" }
+      ],
+      "9A": [
+        { "horario": "7h00-7h50", "disciplina": "C.FÍSICA", "professor": "Paulo" },
+        { "horario": "7h50-8h40", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "8h55-9h45", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "9h45-10h35", "disciplina": "ARTE", "professor": "Marilice" },
+        { "horario": "10h50-11h40", "disciplina": "ED.FÍSICA", "professor": "Keylla" }
+      ],
+      "9B": [
+        { "horario": "7h00-7h50", "disciplina": "GEOGRAFIA", "professor": "Eliene" },
+        { "horario": "7h50-8h40", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "8h55-9h45", "disciplina": "INGLÊS", "professor": "Camille" },
+        { "horario": "9h45-10h35", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "10h50-11h40", "disciplina": "MATEMÁTICA", "professor": "Sidimar" }
+      ]
+    },
+    "5": {
+      "6A": [
+        { "horario": "7h00-7h50", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "7h50-8h40", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "8h55-9h45", "disciplina": "CIÊNCIAS", "professor": "Andreia" },
+        { "horario": "9h45-10h35", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "10h50-11h40", "disciplina": "HISTÓRIA", "professor": "Eliene" }
+      ],
+      "7A": [
+        { "horario": "7h00-7h50", "disciplina": "CIÊNCIAS", "professor": "Andreia" },
+        { "horario": "7h50-8h40", "disciplina": "GEOGRAFIA", "professor": "Eliene" },
+        { "horario": "8h55-9h45", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "9h45-10h35", "disciplina": "ED.FÍSICA", "professor": "Keylla" },
+        { "horario": "10h50-11h40", "disciplina": "HISTÓRIA", "professor": "Eliene" }
+      ],
+      "8A": [
+        { "horario": "7h00-7h50", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "7h50-8h40", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "8h55-9h45", "disciplina": "INGLÊS", "professor": "Camille" },
+        { "horario": "9h45-10h35", "disciplina": "CIÊNCIAS", "professor": "Andreia" },
+        { "horario": "10h50-11h40", "disciplina": "MATEMÁTICA", "professor": "Sidimar" }
+      ],
+      "9A": [
+        { "horario": "7h00-7h50", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "7h50-8h40", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "8h55-9h45", "disciplina": "C.QUÍMICA", "professor": "Andreia" },
+        { "horario": "9h45-10h35", "disciplina": "GEOGRAFIA", "professor": "Eliene" },
+        { "horario": "10h50-11h40", "disciplina": "ED.FÍSICA", "professor": "Keylla" }
+      ],
+      "9B": [
+        { "horario": "7h00-7h50", "disciplina": "ARTE", "professor": "Marilice" },
+        { "horario": "7h50-8h40", "disciplina": "HISTÓRIA", "professor": "Eliene" },
+        { "horario": "8h55-9h45", "disciplina": "GEOGRAFIA", "professor": "Eliene" },
+        { "horario": "9h45-10h35", "disciplina": "ARTE", "professor": "Marilice" },
+        { "horario": "10h50-11h40", "disciplina": "INGLÊS", "professor": "Camille" }
+      ]
+    },
+    "6": {
+      "6A": [
+        { "horario": "7h00-7h50", "disciplina": "GEOGRAFIA", "professor": "Eliene" },
+        { "horario": "7h50-8h40", "disciplina": "CIÊNCIAS", "professor": "Andreia" },
+        { "horario": "8h55-9h45", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "9h45-10h35", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "10h50-11h40", "disciplina": "ED.FÍSICA", "professor": "Keylla" }
+      ],
+      "7A": [
+        { "horario": "7h00-7h50", "disciplina": "INGLÊS", "professor": "Camille" },
+        { "horario": "7h50-8h40", "disciplina": "ROBÓTICA", "professor": "Dario" },
+        { "horario": "8h55-9h45", "disciplina": "HISTÓRIA", "professor": "Eliene" },
+        { "horario": "9h45-10h35", "disciplina": "CIÊNCIAS", "professor": "Andreia" },
+        { "horario": "10h50-11h40", "disciplina": "MATEMÁTICA", "professor": "Sidimar" }
+      ],
+      "8A": [
+        { "horario": "7h00-7h50", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "7h50-8h40", "disciplina": "INGLÊS", "professor": "Camille" },
+        { "horario": "8h55-9h45", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "9h45-10h35", "disciplina": "CIÊNCIAS", "professor": "Andreia" },
+        { "horario": "10h50-11h40", "disciplina": "ED.FÍSICA", "professor": "Keylla" }
+      ],
+      "9A": [
+        { "horario": "7h00-7h50", "disciplina": "INGLÊS", "professor": "Camille" },
+        { "horario": "7h50-8h40", "disciplina": "GEOGRAFIA", "professor": "Eliene" },
+        { "horario": "8h55-9h45", "disciplina": "C.QUÍMICA", "professor": "Andreia" },
+        { "horario": "9h45-10h35", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "10h50-11h40", "disciplina": "ARTE", "professor": "Marilice" }
+      ],
+      "9B": [
+        { "horario": "7h00-7h50", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "7h50-8h40", "disciplina": "MATEMÁTICA", "professor": "Sidimar" },
+        { "horario": "8h55-9h45", "disciplina": "C.QUÍMICA", "professor": "Andreia" },
+        { "horario": "9h45-10h35", "disciplina": "PORTUGUÊS", "professor": "Camille" },
+        { "horario": "10h50-11h40", "disciplina": "GEOGRAFIA", "professor": "Eliene" }
+      ]
+    }
+  },
+  "professores": [
+    { "nome": "Dario",     "disciplina": "Robótica",       "cor": "#16a34a" },
+    { "nome": "Sidimar",   "disciplina": "Matemática",     "cor": "#3b82f6" },
+    { "nome": "Camille",   "disciplina": "Português/Inglês", "cor": "#a78bfa" },
+    { "nome": "Eliene",    "disciplina": "Geografia/História", "cor": "#ef4444" },
+    { "nome": "Andreia",   "disciplina": "Ciências/Química", "cor": "#06b6d4" },
+    { "nome": "Paulo",     "disciplina": "C.Física",       "cor": "#facc15" },
+    { "nome": "Keylla",    "disciplina": "Ed.Física",      "cor": "#f97316" },
+    { "nome": "Marilice",  "disciplina": "Arte",           "cor": "#ec4899" }
+  ]
+}
